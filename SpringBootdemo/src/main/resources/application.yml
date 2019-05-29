@@ -1,0 +1,37 @@
+project:
+  name: springboot
+
+#服务端配置
+#server:
+#  port: 8888
+#  servlet:
+#    context-path: /springboot
+
+#日志配置
+# 设置日志的输出路径
+# 不指定路径，在当前项目下生成 springboot.log 日志
+# 也可以指定完整路径 D:/springboot.log
+# 在当前磁盘的根路径下创建spring文件夹和里面的log文件夹；使用 spring.log 作为默认文件
+logging:
+  file: logs\springboot-log.log
+  level:
+    com:
+      example:
+        trace
+
+#Actuator配置
+info:
+  head: head
+  body: body
+management:
+  endpoints:
+    web:
+      exposure:
+        #加载所有的端点，默认只加载了info、health
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    #可以关闭指定的端点
+    shutdown:
+      enabled: false
